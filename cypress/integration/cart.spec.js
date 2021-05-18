@@ -29,9 +29,9 @@ context('Cart', () => {
 
     // Go to cart
 
-    cy.get('#cart-button').click({
-      force: true
-    });
+    cy.get('#cart-menu').invoke('show');
+
+    cy.get('#cart-button').click();
 
     cy.url().should('include', '/cart');
   });
