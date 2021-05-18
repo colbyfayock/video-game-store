@@ -26,7 +26,7 @@ export default function Home({ games }) {
           <ul id="games" className={styles.grid}>
             {games.map(({ name, image, id }) => {
               return (
-                <li key={id} className={styles.card}>
+                <li id={`game-${id}`} key={id} className={styles.card}>
                   <Link href={`/games/${id}`}>
                     <a>
                       <span className={styles.cardImage} style={{

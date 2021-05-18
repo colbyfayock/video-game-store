@@ -19,14 +19,14 @@ const Header = () => {
               </a>
             </Link>
           </p>
-          <div className={styles.cart}>
-            <p className={styles.cartSubtotal}>
+          <div id="cart" className={styles.cart}>
+            <p id="cart-subtotal" className={styles.cartSubtotal}>
               <FaShoppingCart className={styles.cartIcon} />
               ${subtotal.toFixed(2)}
             </p>
             {cartItems.length > 0 && (
-              <div className={styles.cartMenu}>
-                <ul className={styles.cartItems}>
+              <div id="cart-menu" className={styles.cartMenu}>
+                <ul id="cart-items" className={styles.cartItems}>
                   {cartItems.map(game => {
                     return (
                       <li key={game.id} className={styles.cartItem}>
@@ -38,9 +38,11 @@ const Header = () => {
                   })}
                 </ul>
                 <p className={styles.cartCheckout}>
-                  <button className={styles.cartCheckoutButton}>
-                    Check Out
-                  </button>
+                  <Link href="/cart">
+                    <a id="cart-button" className={styles.cartCheckoutButton}>
+                      Check Out
+                    </a>
+                  </Link>
                 </p>
               </div>
             )}
