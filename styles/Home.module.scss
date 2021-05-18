@@ -1,0 +1,129 @@
+$maxWidth: 960px;
+$colorBlue: #2b3592;
+$colorYellow: #f6ea14;
+$colorOrange: #ff9525;
+$colorRed: #f04423;
+$colorGreen: #4faf43;
+
+.container {
+  max-width: $maxWidth;
+  padding: 0 2em;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: $colorBlue;
+  padding: 1em 0;
+}
+
+.main {
+  margin: 0 auto;
+}
+
+.nav {
+  color: white;
+  background-color: $colorGreen;
+  padding: .5em 0;
+}
+
+.title {
+  color: $colorYellow;
+  font-size: 2em;
+  line-height: 1.15;
+  font-family: 'Press Start 2P', sans-serif;
+  text-align: center;
+  margin: 0;
+}
+
+.navLinks {
+
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin: 0 1em;
+  }
+
+}
+
+.grid {
+  display: grid;
+  grid-gap: 3em;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  list-style: none;
+  padding: 0;
+  margin-top: 3rem;
+}
+
+.card {
+  width: 100%;
+}
+
+.cardImage {
+  display: block;
+  width: 100%;
+  padding-top: 100%;
+  background-size: 101%;
+  background-color: white;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: .5em 0 .5em 0;
+  box-shadow: 3px 3px $colorBlue;
+}
+
+.cardTitle {
+  font-size: 1em;
+  margin: .8em 0 0;
+}
+
+.cardPrice {
+  font-size: 1em;
+  margin: .4em 0 0;
+}
+
+
+
+
+
+
+.productContainer {
+  display: flex;
+  padding-top: 3em;
+}
+
+.productImage {
+  width: 50%;
+  padding-right: 2em;
+}
+
+.productDetails {
+  width: 50%;
+  flex-grow: 0;
+  flex-shrink: 1;
+}
+
+.productTitle {
+  margin: 0;
+}
+
+.productDescription {
+  line-height: 1.4;
+}
+
+.productBuy {
+  margin-top: 1.5em;
+}
+
+.productBuyButton {
+  font-size: 1em;
+  color: white;
+  font-weight: bold;
+  background-color: $colorGreen;
+  border: none;
+  border-radius: .4em 0 .4em 0;
+  padding: .6em 1em;
+  cursor: pointer;
+}
