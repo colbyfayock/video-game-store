@@ -33,15 +33,15 @@ export default function Game({ game }) {
             <img src={game.image.original_url} alt={`${game.name} Cover`} />
           </div>
           <div className={styles.productDetails}>
-            <h1 className={styles.productTitle}>{ game.name }</h1>
+            <h1 id="game-name" className={styles.productTitle}>{ game.name }</h1>
             <p className={styles.productDescription}>
               {game.deck}
             </p>
-            <p className={styles.productPrice}>
+            <p id="game-price" className={styles.productPrice}>
               ${game.price.toFixed(2)}
             </p>
             <p className={styles.productBuy}>
-              <button className={styles.productBuyButton} onClick={handleAddToCart}>
+              <button id="button-add-to-cart" className={styles.productBuyButton} onClick={handleAddToCart}>
                 Add to Cart
               </button>
             </p>
