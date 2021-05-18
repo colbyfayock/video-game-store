@@ -23,10 +23,10 @@ export default function Home({ games }) {
 
           <h2 className="sr-only">Available Games</h2>
 
-          <ul className={styles.grid}>
+          <ul id="games" className={styles.grid}>
             {games.map(({ name, image, id }) => {
               return (
-                <li key={id} className={styles.card}>
+                <li id={`game-${id}`} key={id} className={styles.card}>
                   <Link href={`/games/${id}`}>
                     <a>
                       <span className={styles.cardImage} style={{
