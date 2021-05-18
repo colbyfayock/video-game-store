@@ -12,6 +12,8 @@ $colorGreen: #4faf43;
 }
 
 .main {
+  position: relative;
+  z-index: 1;
   background-color: white;
   margin: 0 auto;
 }
