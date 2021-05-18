@@ -11,42 +11,8 @@ $colorGreen: #4faf43;
   margin: 0 auto;
 }
 
-.header {
-  background-color: $colorBlue;
-  padding: 1em 0;
-}
-
 .main {
   margin: 0 auto;
-}
-
-.nav {
-  color: white;
-  background-color: $colorGreen;
-  padding: .5em 0;
-}
-
-.title {
-  color: $colorYellow;
-  font-size: 2em;
-  line-height: 1.15;
-  font-family: 'Press Start 2P', sans-serif;
-  text-align: center;
-  margin: 0;
-}
-
-.navLinks {
-
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  li {
-    margin: 0 1em;
-  }
-
 }
 
 .grid {
@@ -66,7 +32,7 @@ $colorGreen: #4faf43;
   display: block;
   width: 100%;
   padding-top: 100%;
-  background-size: 101%;
+  background-size: cover;
   background-color: white;
   background-position: center center;
   background-repeat: no-repeat;

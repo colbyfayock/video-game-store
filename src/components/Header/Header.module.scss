@@ -1,0 +1,125 @@
+$maxWidth: 960px;
+$colorBlue: #2b3592;
+$colorYellow: #f6ea14;
+$colorOrange: #ff9525;
+$colorRed: #f04423;
+$colorGreen: #4faf43;
+
+.container {
+  max-width: $maxWidth;
+  padding: 0 2em;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: $colorBlue;
+  padding: 1em 0;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  color: $colorYellow;
+  font-size: 1em;
+  line-height: 1.15;
+  font-family: 'Press Start 2P', sans-serif;
+  text-align: center;
+  margin: 0;
+}
+
+.cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: white;
+  margin: 0;
+
+  &:hover {
+
+    color: $colorYellow;
+
+    .cartMenu {
+      display: block;
+    }
+
+  }
+
+}
+
+.cartIcon {
+  margin-right: .5em;
+}
+
+.cartMenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 17em;
+  color: darken($colorOrange, 40);
+  background-color: $colorOrange;
+  padding: 1em 1.2em;
+  border-radius: .4em 0 .4em 0;
+}
+
+.cartItems {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cartItem {
+
+  display: grid;
+  grid-template-columns: 4fr 2fr 1fr;
+
+  p {
+
+    margin: 0;
+
+    &:last-child {
+      text-align: right;
+    }
+
+  }
+
+}
+
+.cartCheckout {
+  text-align: right;
+  margin: 1em 0 0;
+}
+
+.cartCheckoutButton {
+  color: darken($colorOrange, 40);
+  font-weight: bold;
+  background-color: $colorYellow;
+  padding: .6em 1em;
+  border: 0;
+  border-radius: .4em 0 .4em 0;
+  cursor: pointer;
+}
+
+.nav {
+  color: white;
+  background-color: $colorGreen;
+  padding: .5em 0;
+}
+
+.navLinks {
+
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin: 0 1em;
+  }
+
+}

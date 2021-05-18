@@ -1,9 +1,22 @@
 import Head from 'next/head'
 import Link from 'next/link'
+
+import { useCart } from '../../hooks/use-cart.js';
+
+import Header from '../../components/Header';
+
 import styles from '../../styles/Home.module.scss'
 
 export default function Game({ game }) {
-  console.log('game', game);
+
+  const { addToCart } = useCart();
+
+  function handleAddToCart() {
+    addToCart({
+      id: game.id
+    });
+  }
+
   return (
     <div>
       <Head>
@@ -12,44 +25,7 @@ export default function Game({ game }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className={styles.header}>
-        <div className={styles.container}>
-          <p className={styles.title}>
-            <Link href="/">
-              <a>
-                Video Game Store
-              </a>
-            </Link>
-          </p>
-        </div>
-      </header>
-
-      <nav className={styles.nav}>
-        <div className={styles.container}>
-          <ul className={styles.navLinks}>
-            <li>
-              <a href="#">
-                Xbox Series X
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Playstation 5
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Nintendo Switch
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                PC
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <Header />
 
       <main className={styles.main}>
         <div className={`${styles.container} ${styles.productContainer}`}>
@@ -62,10 +38,12 @@ export default function Game({ game }) {
               {game.deck}
             </p>
             <p className={styles.productPrice}>
-              $60.00
+              ${game.price.toFixed(2)}
             </p>
             <p className={styles.productBuy}>
-              <button className={styles.productBuyButton}>Add to Cart</button>
+              <button className={styles.productBuyButton} onClick={handleAddToCart}>
+                Add to Cart
+              </button>
             </p>
           </div>
         </div>
@@ -75,11 +53,14 @@ export default function Game({ game }) {
 }
 
 export async function getStaticProps({ params = {} } = {}) {
-  const response = await fetch(`https://www.giantbomb.com/api/game/${params.gameId}/?api_key=${process.env.GIANT_BOMB_API_KEY}&format=json&sort=original_release_date:desc&filter=original_release_date:2016-01-01|2021-05-17&platforms=145,146&field_list=name,image,deck`);
+  const response = await fetch(`https://www.giantbomb.com/api/game/${params.gameId}/?api_key=${process.env.GIANT_BOMB_API_KEY}&format=json&sort=original_release_date:desc&filter=original_release_date:2016-01-01|2021-05-17&platforms=145,146&field_list=name,image,deck,id`);
   const { results } = await response.json();
   return {
     props: {
-      game: results
+      game: {
+        ...results,
+        price: 60
+      }
     }
   }
 }
