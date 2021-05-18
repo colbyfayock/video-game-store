@@ -18,6 +18,11 @@ export default function Home({ games }) {
 
       <main className={styles.main}>
         <div className={styles.container}>
+
+          <h1 className="sr-only">Video Game Store</h1>
+
+          <h2 className="sr-only">Available Games</h2>
+
           <ul className={styles.grid}>
             {games.map(({ name, image, id }) => {
               return (

@@ -7,7 +7,7 @@ import styles from './Header.module.scss';
 
 const Header = () => {
   const { subtotal, cartItems } = useCart();
-  console.log('cartItems', cartItems)
+
   return (
     <>
       <header className={styles.header}>
@@ -20,7 +20,7 @@ const Header = () => {
             </Link>
           </p>
           <div className={styles.cart}>
-            <p>
+            <p className={styles.cartSubtotal}>
               <FaShoppingCart className={styles.cartIcon} />
               ${subtotal.toFixed(2)}
             </p>

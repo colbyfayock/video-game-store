@@ -7,9 +7,7 @@ const defaultCart = {
 export const CartContext = createContext();
 
 export function useCartState({ games }) {
-  console.log('games', games)
   const [cart, updateCart] = useState(defaultCart);
-  console.log('cart.products', cart.products)
 
   const cartItems = Object.keys(cart.products).map(key => {
     const game = games.find(({ id }) => `${id}` === `${key}`);
