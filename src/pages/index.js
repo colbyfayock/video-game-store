@@ -1,13 +1,16 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
+import { useGames } from '@hooks/use-games';
+
 import Layout from '@components/Layout';
 import Container from '@components/Container';
 import Header from '@components/Header';
 
 import styles from '@styles/pages/Home.module.scss'
 
-export default function Home({ games }) {
+export default function Home() {
+  const { games } = useGames();
   return (
     <Layout>
       <Head>
@@ -45,15 +48,4 @@ export default function Home({ games }) {
       </Container>
     </Layout>
   )
-}
-
-export async function getStaticProps() {
-  const response = await fetch(`https://www.giantbomb.com/api/games/?api_key=${process.env.GIANT_BOMB_API_KEY}&format=json&sort=original_release_date:desc&filter=original_release_date:2017-01-01%2000:00:00|2020-05-17%2000:00:00&platforms=145,146&field_list=name,image,id,name,original_release_date`);
-  const { results } = await response.json();
-
-  return {
-    props: {
-      games: results
-    }
-  }
 }
