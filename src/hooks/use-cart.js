@@ -15,7 +15,8 @@ export function useCartState({ games }) {
     return {
       ...game,
       ...cart.products[key],
-      pricePerUnit: game.price
+      pricePerUnit: 60,
+      price: 60
     }
   });
 

@@ -9,7 +9,6 @@ import Container from '@components/Container';
 import styles from '@styles/pages/Game.module.scss'
 
 export default function Game({ game }) {
-
   const { addToCart } = useCart();
 
   function handleAddToCart() {
@@ -50,12 +49,17 @@ export default function Game({ game }) {
 }
 
 export async function getStaticProps({ params = {} } = {}) {
-  const response = await fetch(`https://www.giantbomb.com/api/game/${params.gameId}/?api_key=${process.env.GIANT_BOMB_API_KEY}&format=json&sort=original_release_date:desc&filter=original_release_date:2016-01-01|2021-05-17&platforms=145,146&field_list=name,image,deck,id`);
-  const { results } = await response.json();
+  const gameResponse = await fetch(`https://www.giantbomb.com/api/game/${params.gameId}/?api_key=${process.env.GIANT_BOMB_API_KEY}&format=json&sort=original_release_date:desc&filter=original_release_date:2016-01-01|2021-05-17&platforms=145,146&field_list=name,image,deck,id`);
+  const { results: game } = await gameResponse.json();
+
+  const gamesResponse = await fetch(`https://www.giantbomb.com/api/games/?api_key=${process.env.GIANT_BOMB_API_KEY}&format=json&sort=original_release_date:desc&filter=original_release_date:2016-01-01|2021-05-17&platforms=145,146&field_list=id,name,image&limit=12`);
+  const { results: games } = await gamesResponse.json();
+
   return {
     props: {
+      games,
       game: {
-        ...results,
+        ...game,
         price: 60
       }
     }
@@ -63,7 +67,7 @@ export async function getStaticProps({ params = {} } = {}) {
 }
 
 export async function getStaticPaths() {
-  const response = await fetch(`https://www.giantbomb.com/api/games/?api_key=${process.env.GIANT_BOMB_API_KEY}&format=json&sort=original_release_date:desc&filter=original_release_date:2016-01-01|2021-05-17&platforms=145,146&field_list=id`);
+  const response = await fetch(`https://www.giantbomb.com/api/games/?api_key=${process.env.GIANT_BOMB_API_KEY}&format=json&sort=original_release_date:desc&filter=original_release_date:2016-01-01|2021-05-17&platforms=145,146&field_list=id&limit=12`);
   const { results } = await response.json();
 
   const paths = results.map(({ id }) => {
