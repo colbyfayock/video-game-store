@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import { FaShoppingCart } from 'react-icons/fa';
 
-import { useCart } from '../../hooks/use-cart.js';
+import { useCart } from '@hooks/use-cart.js';
+
+import Container from '@components/Container';
 
 import styles from './Header.module.scss';
 
@@ -9,9 +11,9 @@ const Header = () => {
   const { subtotal, cartItems } = useCart();
 
   return (
-    <>
+    <div>
       <header className={styles.header}>
-        <div className={`${styles.container} ${styles.headerContainer}`}>
+        <Container className={styles.headerContainer}>
           <p className={styles.title}>
             <Link href="/">
               <a>
@@ -21,8 +23,12 @@ const Header = () => {
           </p>
           <div id="cart" className={styles.cart}>
             <p id="cart-subtotal" className={styles.cartSubtotal}>
-              <FaShoppingCart className={styles.cartIcon} />
-              ${subtotal.toFixed(2)}
+              <Link href="/cart">
+                <a>
+                  <FaShoppingCart className={styles.cartIcon} />
+                  ${subtotal.toFixed(2)}
+                </a>
+              </Link>
             </p>
             {cartItems.length > 0 && (
               <div id="cart-menu" className={styles.cartMenu}>
@@ -47,10 +53,10 @@ const Header = () => {
               </div>
             )}
           </div>
-        </div>
+        </Container>
       </header>
       <nav className={styles.nav}>
-        <div className={styles.container}>
+        <Container>
           <ul className={styles.navLinks}>
             <li>
               <a href="#">
@@ -73,9 +79,9 @@ const Header = () => {
               </a>
             </li>
           </ul>
-        </div>
+        </Container>
       </nav>
-    </>
+    </div>
   )
 }
 
