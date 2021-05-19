@@ -1,15 +1,4 @@
-$maxWidth: 960px;
-$colorBlue: #2b3592;
-$colorYellow: #f6ea14;
-$colorOrange: #ff9525;
-$colorRed: #f04423;
-$colorGreen: #4faf43;
-
-.container {
-  max-width: $maxWidth;
-  padding: 0 2em;
-  margin: 0 auto;
-}
+@import "@styles/settings/__settings";
 
 .header {
   background-color: $colorBlue;
@@ -23,7 +12,7 @@ $colorGreen: #4faf43;
 
 .title {
   color: $colorYellow;
-  font-size: 1em;
+  font-size: 1.5em;
   line-height: 1.15;
   font-family: 'Press Start 2P', sans-serif;
   text-align: center;
@@ -31,11 +20,13 @@ $colorGreen: #4faf43;
 }
 
 .cart {
+
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   color: white;
+  font-size: 1.2em;
   margin: 0;
 
   &:hover {
@@ -52,6 +43,7 @@ $colorGreen: #4faf43;
 
 .cartSubtotal {
   margin: 0;
+  cursor: default;
 }
 
 .cartIcon {
@@ -63,10 +55,10 @@ $colorGreen: #4faf43;
   position: absolute;
   top: 100%;
   right: 0;
-  width: 17em;
-  color: darken($colorOrange, 40);
+  width: 20em;
+  color: darken($colorOrange, 45);
   background-color: $colorOrange;
-  padding: 1em 1.2em;
+  padding: 1.2em 1.4em;
   border-radius: .4em 0 .4em 0;
 }
 
@@ -99,6 +91,7 @@ $colorGreen: #4faf43;
 }
 
 .cartCheckoutButton {
+  display: inline-block;
   color: darken($colorOrange, 40);
   font-weight: bold;
   background-color: $colorYellow;

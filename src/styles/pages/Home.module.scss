@@ -1,20 +1,4 @@
-$maxWidth: 960px;
-$colorBlue: #2b3592;
-$colorYellow: #f6ea14;
-$colorOrange: #ff9525;
-$colorRed: #f04423;
-$colorGreen: #4faf43;
-
-.container {
-  max-width: $maxWidth;
-  padding: 0 2em;
-  margin: 0 auto;
-}
-
-.main {
-  background-color: white;
-  margin: 0 auto;
-}
+@import "@styles/settings/__settings";
 
 .grid {
   display: grid;
