@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { FaShoppingCart } from 'react-icons/fa';
 
 import { useCart } from '@hooks/use-cart.js';
+import { useGames } from '@hooks/use-games.js';
 
 import Container from '@components/Container';
 
