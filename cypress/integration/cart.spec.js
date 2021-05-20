@@ -2,7 +2,7 @@
 
 context('Cart', () => {
   beforeEach(() => {
-    cy.visit('https://demo-video-game-store.netlify.app/');
+    cy.visit('https://deploy-preview-1--demo-video-game-store.netlify.app/');
   })
 
   it('add an item to the cart and go to cart', () => {
