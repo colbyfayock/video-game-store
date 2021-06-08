@@ -7,6 +7,11 @@ context('Cart', () => {
 
   it('add an item to the cart and go to cart', () => {
 
+    cy.eyesOpen({
+      appName: 'Video Game Store',
+      testName: 'Add to Cart'
+    });
+
     // Find a game from the list and navigate to it
 
     cy.get('#games li').eq(1).then($game => {
@@ -14,6 +19,8 @@ context('Cart', () => {
       cy.wrap($game).find('a').click();
       cy.url().should('include', `/games/${id}`);
     });
+
+    cy.eyesCheckWindow('Product Page');
 
     // Add that game to the cart
 
@@ -31,7 +38,11 @@ context('Cart', () => {
 
     cy.get('#cart-menu').invoke('show');
 
+    cy.eyesCheckWindow('Product Page with Cart');
+
     cy.get('#cart-button').click();
+
+    cy.eyesCheckWindow('Cart Page');
 
     cy.url().should('include', '/cart');
   });
